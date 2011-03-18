@@ -1,0 +1,7 @@
+<!-- The smallest possible Maven POM.xml -->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gradleware.samples</groupId>
+  <artifactId>sample01-barestbones</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+</project>
