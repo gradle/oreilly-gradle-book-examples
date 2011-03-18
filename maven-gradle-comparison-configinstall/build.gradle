@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+defaultTasks = ['install']
+
+configure(install.repositories.mavenInstaller) {
+    pom.project {
+        groupId 'com.gradleware.samples'
+        artifactId 'sample02-barestbones'
+        version '0.0.1-SNAPSHOT'
+        description ='A sample project these uses the Maven plugin and defines many attributes.'
+    }
+}

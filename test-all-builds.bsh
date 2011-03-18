@@ -1,0 +1,18 @@
+#!/bin/bash
+
+for i in `find . ! -iname ".git" -type d -depth 1`; do
+    pushd $i
+    run-example.bsh
+    
+    # Test for failure
+    BUILD_RESULT="$?"
+    echo Build result: $BUILD_RESULT
+    if test "$BUILD_RESULT" = "1"
+    then
+        echo **********************************************************************
+        echo ************* A sub-build has failed. Build is halting. **************
+        exit 1
+    fi
+    
+    popd
+done
