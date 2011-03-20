@@ -1,0 +1,66 @@
+:properties
+
+------------------------------------------------------------
+Root Project
+------------------------------------------------------------
+
+additionalProperties: {}
+all: [task ':helloWorld']
+allprojects: [root project 'minimal-build-file']
+ant: org.gradle.api.internal.project.DefaultAntBuilder@5057f57f
+antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@114562c5
+artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler@23bf8cd5
+asDynamicObject: org.gradle.api.internal.DynamicObjectHelper@30c26c8f
+asMap: {helloWorld=task ':helloWorld'}
+buildDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/minimal-build-file/build
+buildDirName: build
+buildFile: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/minimal-build-file/build.gradle
+buildScriptSource: org.gradle.groovy.scripts.UriScriptSource@111edceb
+buildscript: org.gradle.api.internal.initialization.DefaultScriptHandler@7fb2380e
+childProjects: {}
+class: class org.gradle.api.internal.project.DefaultProject_Decorated
+classGenerator: org.gradle.api.internal.AsmBackedClassGenerator@709a1411
+configurations: org.gradle.api.internal.artifacts.configurations.DefaultConfigurationContainer_Decorated@69d4eeb5
+convention: org.gradle.api.internal.plugins.DefaultConvention@71cbd4f7
+conventionMapping: org.gradle.api.internal.ConventionAwareHelper@1aa632be
+defaultTasks: []
+dependencies: org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler@d44752d
+dependsOnProjects: []
+depth: 0
+description: null
+displayName: task container
+fileResolver: org.gradle.api.internal.file.BaseDirConverter@56d99277
+gradle: build 'minimal-build-file'
+group: 
+helloWorld: task ':helloWorld'
+implicitTasks: org.gradle.api.internal.tasks.DefaultTaskContainer_Decorated@384ab40a
+inheritedScope: org.gradle.api.internal.DynamicObjectHelper$InheritedDynamicObject@388a2006
+logger: org.gradle.api.logging.Logging$LoggerImpl@521c5cd7
+logging: org.gradle.logging.internal.DefaultLoggingManager@3821b42f
+metaClass: org.codehaus.groovy.runtime.HandleMetaClass@5b76de14[groovy.lang.MetaClassImpl@5b76de14[class org.gradle.api.internal.project.DefaultProject_Decorated]]
+module: org.gradle.api.internal.artifacts.DefaultModule@59a51312
+name: minimal-build-file
+parent: null
+parentIdentifier: null
+path: :
+plugins: org.gradle.api.internal.plugins.DefaultProjectsPluginContainer@5608a6fc
+project: root project 'minimal-build-file'
+projectDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/minimal-build-file
+projectEvaluationBroadcaster: ProjectEvaluationListener broadcast
+projectEvaluator: org.gradle.configuration.DefaultProjectEvaluator@6212f195
+projectRegistry: org.gradle.api.internal.project.DefaultProjectRegistry@5e1558dc
+properties: {...}
+repositories: org.gradle.api.internal.artifacts.dsl.DefaultRepositoryHandler_Decorated@ba3bc8c
+repositoryHandlerFactory: org.gradle.api.internal.artifacts.dsl.SharedConventionRepositoryHandlerFactory@41ed54a0
+rootDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/minimal-build-file
+rootProject: root project 'minimal-build-file'
+rules: []
+services: ProjectInternalServiceRegistry
+standardOutputCapture: org.gradle.logging.internal.DefaultLoggingManager@3821b42f
+state: org.gradle.api.internal.project.ProjectStateInternal@594560cf
+status: release
+subprojects: []
+tasks: org.gradle.api.internal.tasks.DefaultTaskContainer_Decorated@5e20dcb7
+type: interface org.gradle.api.Task
+typeDisplayName: task
+version: unspecified

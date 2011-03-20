@@ -1,0 +1,40 @@
+apiDocTitle: maven-gradle-comparison-simple API
+archivesBaseName: maven-gradle-comparison-simple
+assemble: task ':assemble'
+build: task ':build'
+buildDependents: task ':buildDependents'
+buildNeeded: task ':buildNeeded'
+buildTasks: [build]
+check: task ':check'
+classes: task ':classes'
+clean: task ':clean'
+compileJava: task ':compileJava'
+compileTestJava: task ':compileTestJava'
+dependencyCacheDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/maven-gradle-comparison-simple/build/dependency-cache
+dependencyCacheDirName: dependency-cache
+distsDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/maven-gradle-comparison-simple/build/distributions
+distsDirName: distributions
+docsDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/maven-gradle-comparison-simple/build/docs
+docsDirName: docs
+jar: task ':jar'
+javadoc: task ':javadoc'
+libsDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/maven-gradle-comparison-simple/build/libs
+libsDirName: libs
+manifest: org.gradle.api.java.archives.internal.DefaultManifest@7a66998f
+metaInf: []
+processResources: task ':processResources'
+processTestResources: task ':processTestResources'
+rebuildTasks: [clean, build]
+reportsDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/maven-gradle-comparison-simple/build/reports
+reportsDirName: reports
+rules: [Rule: Pattern: build<ConfigurationName>: Assembles the artifacts of a configuration., Rule: Pattern: upload<ConfigurationName>: Assembles and uploads the artifacts belonging to a configuration., Rule: Pattern: clean<TaskName>: Cleans the output files of a task.]
+runtimeClasspath: file collection
+sourceCompatibility: 1.5
+sourceSets: org.gradle.api.internal.tasks.DefaultSourceSetContainer_Decorated@2850a492
+targetCompatibility: 1.5
+test: task ':test'
+testClasses: task ':testClasses'
+testReportDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/maven-gradle-comparison-simple/build/reports/tests
+testReportDirName: tests
+testResultsDir: /Users/mccm06/Documents/Clients/Gradle-Inc/Gradle_Books_OReilly_SVN_and_Git_Repos/oreilly-gradle-book-1-examples/maven-gradle-comparison-simple/build/test-results
+testResultsDirName: test-results
