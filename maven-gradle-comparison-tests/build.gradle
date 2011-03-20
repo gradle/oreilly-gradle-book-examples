@@ -4,8 +4,6 @@ apply plugin: 'maven'
 group = 'com.gradleware.samples'
 version = '0.0.1-SNAPSHOT'
 
-defaultTasks = ['test', 'install']
-
 repositories {
     mavenCentral()
 }
