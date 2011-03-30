@@ -1,0 +1,5 @@
+
+task hello
+
+hello << { print 'hello, ' }
+hello << { println 'world' }
