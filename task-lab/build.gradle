@@ -1,0 +1,23 @@
+task hello << {
+  print 'hello '
+}
+
+task world(dependsOn: hello) << {
+  println 'world'
+}
+
+world.onlyIf {
+  System.properties['greet.entire.world'] == 'true'
+}
+
+
+
+task monkey(type: MonkeyTask) << {
+  monkey()
+}
+
+class MonkeyTask extends DefaultTask {
+  def monkey() {
+    println 'angry monkey'
+  }
+}
