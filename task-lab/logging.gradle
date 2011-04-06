@@ -16,6 +16,7 @@ task logLevel << {
     logger.warn 'WARN ENABLED'
     logger.quiet 'QUIET ENABLED'
     logger.error 'ERROR ENABLED'
+    println 'THIS IS println OUTPUT'
     logger.error ' '
   }
 }
