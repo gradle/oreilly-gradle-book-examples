@@ -1,0 +1,9 @@
+task hello << {
+  println 'hello'
+}
+
+task world(dependsOn: hello) << {
+  println 'world'
+}
+
+world.enabled = false
