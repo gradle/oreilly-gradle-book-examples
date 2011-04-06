@@ -1,0 +1,7 @@
+apply plugin: 'java'
+
+task emailMe(dependsOn: compileJava) << {
+  if(tasks.compileJava.didWork) {
+    println 'PRETEND WE SENT AN EMAIL'
+  }
+}
