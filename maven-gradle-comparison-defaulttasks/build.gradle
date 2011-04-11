@@ -1,3 +1,10 @@
 apply plugin: 'java'
 
-defaultTasks = ['clean', 'build']
+//Alternate approach 1
+//defaultTasks = ['clean', 'build']
+
+//Alternate approach 2
+//defaultTasks 'clean'
+
+//Approach 3
+defaultTasks 'clean', 'build'
