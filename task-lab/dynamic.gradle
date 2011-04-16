@@ -1,5 +1,9 @@
-task dynamic << {
-  println "hello ${dynamicName}"
+task copyFiles << {
+  // Find files from wherever, copy them
+  // (then hardcode a list of files for illustration)
+  fileManifest = [ 'data.csv', 'config.json' ]
 }
 
-dynamic.dynamicName = 'world'
+task createArtifact(dependsOn: copyFiles) << {
+  println "FILES IN MANIFEST: ${copyFiles.fileManifest}"
+}
