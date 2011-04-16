@@ -1,0 +1,3 @@
+task helloWorld(description: 'Says hello to the world') << {
+  println 'hello, world'
+}

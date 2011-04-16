@@ -1,0 +1,5 @@
+task dynamic << {
+  println "hello ${dynamicName}"
+}
+
+dynamic.dynamicName = 'world'

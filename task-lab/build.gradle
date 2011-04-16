@@ -1,15 +1,22 @@
+
 task hello << {
-  print 'hello '
+  print "hello "
 }
 
 task world(dependsOn: hello) << {
-  println 'world'
+  println "${monkey} world"
 }
+
+world { 
+  description = 'says hello to the world'
+}
+
+world.monkey = 'angry'
+
 
 world.onlyIf {
   System.properties['greet.entire.world'] == 'true'
 }
-
 
 
 task monkey(type: MonkeyTask) << {

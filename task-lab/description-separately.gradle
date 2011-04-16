@@ -1,0 +1,10 @@
+task helloWorld << {
+  println 'hello, world'
+}
+
+helloWorld {
+  description = 'Says hello to the world'
+}
+
+// Another way to do it
+helloWorld.description = 'Says hello to the world'
