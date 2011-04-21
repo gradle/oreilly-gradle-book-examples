@@ -1,0 +1,4 @@
+task echoViaAnt << {
+    //Echo the Gradle project name via the ant echo plugin
+    ant.echo(message: project.name)
+}
