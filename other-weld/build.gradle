@@ -1,0 +1,32 @@
+//From https://github.com/wangliyu/Weld-Gradle
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'project-report'
+
+group = 'org.lxw.weld.sample'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = 1.6
+
+repositories {
+	mavenRepo(urls: ['http://repository.jboss.org/nexus/content/groups/public/', 'http://repository.jboss.org/maven2'])
+	mavenCentral()
+}
+
+dependencies {
+	compile "javax.enterprise:cdi-api:1.0-SP1", "javax.servlet:servlet-api:2.5", "javax.faces:jsf-api:2.0.0-RC", "javax.el:el-api:2.2", "org.slf4j:slf4j-api:1.5.8"
+	runtime "org.jboss.weld:weld-core:1.0.1-SP1"
+
+	testCompile "org.testng:testng:5.12.1", "org.jboss.shrinkwrap:shrinkwrap-api:1.0.0-alpha-11", "org.jboss.arquillian:arquillian-testng:1.0.0.Alpha4", "org.jboss.arquillian:arquillian-api:1.0.0.Alpha4"
+
+	testRuntime "org.slf4j:slf4j-simple:1.5.8", "org.jboss.arquillian.container:arquillian-jbossas-remote-6:1.0.0.Alpha4", "org.jboss.jbossas:jboss-as-client:6.0.0.20100911-M5"
+}
+
+manifest.mainAttributes('Created-By': System.properties['java.runtime.version'] + ' (' + System.properties['java.vm.vendor'] + ')',
+						'Implementation-Title': 'weld-gradle',
+						'Implementation-Version': version,
+						'Implementation-Vendor': 'www.lxw.org')
+
+test {
+	useTestNG()
+}

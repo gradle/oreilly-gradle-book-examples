@@ -1,0 +1,26 @@
+//Run me by typing `gradle hello_world`
+
+task early << {
+    def earlynothing = 0
+}
+
+
+
+task hello_world << {
+    println "Hello World New Style."
+}
+
+
+task goodbye_world << {
+    println "echo Shell Goodbye World New Style.".execute().text
+}
+
+
+
+task late (dependsOn: goodbye_world){
+    def latenothing = 1
+}
+
+task latest << {
+    def latestnothing = 2
+}
