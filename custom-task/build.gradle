@@ -1,0 +1,37 @@
+task createDatabase(type: MySqlTask) {
+  sql = 'CREATE DATABASE IF NOT EXISTS example'
+}
+
+task createUser(type: MySqlTask, dependsOn: createDatabase) {
+  sql = "GRANT ALL PRIVILEGES ON example.* TO exampleuser@localhost IDENTIFIED BY 'passw0rd'"
+}
+
+task createTable(type: MySqlTask, dependsOn: createUser) {
+  username = 'exampleuser'
+  password = 'passw0rd'
+  database = 'example'
+  sql = 'CREATE TABLE IF NOT EXISTS users (id BIGINT PRIMARY KEY, username VARCHAR(100))'
+}
+
+class MySqlTask extends DefaultTask {
+  def hostname = 'localhost'
+  def port = 3306
+  def sql
+  def database
+  def username = 'root'
+  def password = 'password'
+  
+  @TaskAction
+  def runQuery() {
+    def cmd
+    if(database) {
+      cmd = "mysql -u ${username} -p${password} -h ${hostname} -P ${port} ${database} -e "
+    }
+    else {
+      cmd = "mysql -u ${username} -p${password} -h ${hostname} -P ${port} -e "
+    }
+    project.exec {
+      commandLine = cmd.split().toList() + sql
+    }
+  }
+}
