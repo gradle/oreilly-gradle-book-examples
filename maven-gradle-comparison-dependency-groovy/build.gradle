@@ -9,7 +9,8 @@ repositories {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.8.+'
+    testCompile 'junit:junit:4.8.2'
     compile 'commons-beanutils:commons-beanutils:1.8.3'
-    groovy 'mule:mule-extras-groovy:1.+'
+    //groovy 'mule:mule-extras-groovy:1.+' //The flexible definition of a version requires Internet access
+    groovy 'mule:mule-extras-groovy:1.1.1'
 }

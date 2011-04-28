@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in `find . ! -iname ".git" -type d -depth 1`; do
+for i in `find . ! -iname ".gradle" ! -iname ".git" -type d -depth 1`; do
     pushd $i
     
     if test "$1" == clean

@@ -8,6 +8,6 @@ repositories {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.8.+'
+    testCompile 'junit:junit:4.8.2'
     compile 'commons-beanutils:commons-beanutils:1.8.3'
 }
