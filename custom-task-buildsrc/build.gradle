@@ -1,0 +1,15 @@
+task createDatabase(type: MySqlTask) {
+  sql = 'CREATE DATABASE IF NOT EXISTS example'
+}
+
+task createUser(type: MySqlTask, dependsOn: createDatabase) {
+  sql = "GRANT ALL PRIVILEGES ON example.* TO exampleuser@localhost IDENTIFIED BY 'passw0rd'"
+}
+
+task createTable(type: MySqlTask, dependsOn: createUser) {
+  username = 'exampleuser'
+  password = 'passw0rd'
+  database = 'example'
+  sql = 'CREATE TABLE IF NOT EXISTS users (id BIGINT PRIMARY KEY, username VARCHAR(100))'
+}
+
