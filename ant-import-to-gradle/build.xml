@@ -1,0 +1,5 @@
+<project>
+    <target name="helloViaAttribute">
+        <echo message="hello from Ant"/>
+    </target>
+</project>
