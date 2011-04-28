@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+task customJar(type: Jar) {
+  manifest {
+    attributes firstKey: 'firstValue', secondKey: 'secondValue'
+  }
+  archiveName = 'hello.jar'
+  destinationDir = file("${buildDir}/jars")
+  from sourceSets.main.classes
+}
