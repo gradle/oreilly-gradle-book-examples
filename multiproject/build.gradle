@@ -1,0 +1,5 @@
+
+project(':codec').apply plugin: 'java'
+project(':codec').repositories { mavenCentral() }
+project(':codec').dependencies { compile 'commons-codec:commons-codec:1.5' }
+
