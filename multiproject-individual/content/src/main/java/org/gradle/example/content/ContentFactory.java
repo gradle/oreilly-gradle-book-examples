@@ -21,6 +21,9 @@ public class ContentFactory {
       else if(poet.equals("williams")) {
         provider = new WilliamCarlosWilliamsContent();
       }
+      else if(poet.equals("shelley")) {
+        provider = new ShelleyContent();
+      }
     }
 
     return provider;
