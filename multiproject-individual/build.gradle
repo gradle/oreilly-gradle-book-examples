@@ -1,12 +1,11 @@
+evaluationDependsOn(':codec')
+
 apply plugin: 'java'
 
 dependencies {
   compile project(':codec')
   compile project(':content')
 }
-
-
-println project(':codec').configurations.metaClass.properties.collect { it.name }  //.compile.files
 
 [ 'shakespeare', 'williams', 'shelley' ].each { poet ->
   task "${poet}"(type: JavaExec) {
