@@ -1,0 +1,48 @@
+digraph GradleTasks {
+  //Build
+  1 [label = "assemble"];
+  2 [label = "build"];
+  3 [label = "buildDependents"];
+  4 [label = "buildNeeded"];
+  5 [label = "classes"];
+   6 [label = "compileJava"];
+   7 [label = "processResources"];
+  8 [label = "clean"];
+  9 [label = "jar"];
+  10 [label = "testClasses"];
+   11 [label = "compileTestJava"];
+   12 [label = "processTestResources"];
+  
+  //Documentation
+  13 [label = "javadoc"];
+  
+  //Help
+  14 [label = "dependencies"];
+  15 [label = "help"];
+  16 [label = "projects"];
+  17 [label = "properties"];
+  18 [label = "tasks"];
+  
+  //Verification
+  19 [label = "check"];
+  20 [label = "test"];
+  
+  1 -> 9 [label = "depends"];
+  2 -> 1 [label = "depends"];
+  2 -> 19 [label = "depends"];
+  3 -> 2 [label = "depends"];
+  4 -> 2 [label = "depends"];
+  9 -> 5 [label = "depends"];
+  10 -> 5 [label = "depends"];
+  13 -> 5 [label = "depends"];
+  19 -> 20 [label = "depends"];
+  20 -> 10 [label = "depends"];
+  20 -> 5 [label = "depends"];
+  
+  6 -> 5 [label = "depends"];
+  7 -> 5 [label = "depends"];
+  
+  11 -> 10 [label = "depends"];
+  12 -> 10 [label = "depends"];
+  
+}
