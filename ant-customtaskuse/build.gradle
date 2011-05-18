@@ -1,7 +1,10 @@
 apply plugin: 'java'
 
-defaultTasks 'checkTheStyle'
+defaultTasks 'checkTheStyle', 'checkThePMD'
 
+//////////////////////////////////////////////////////////
+// Checkstyle example using a properties file
+// to control the loading of the Ant Task.
 task checkTheStyle << {
     //Load the custom task
     ant.taskdef(resource: 'checkstyletask.properties') {
@@ -11,7 +14,31 @@ task checkTheStyle << {
     }
     
     //Use the custom task
-    ant.checkstyle(config: 'src/tools/sun_checks.xml') {
+    ant.checkstyle(config: 'src/tools/checkstyle-sun-checks.xml') {
+        fileset(dir: 'src/main/java')
+    }
+}
+
+//////////////////////////////////////////////////////////
+// PMD example using a configuration and Gradle dependency
+// management to control the loading of the Ant Task.
+configurations {
+    myPmd
+}
+
+dependencies {
+    myPmd group: 'pmd', name: 'pmd', version: '4.2.5'
+}
+
+repositories {
+    mavenCentral()
+}
+
+task checkThePMD << {
+    ant.taskdef(name: 'myPmdTask', classname: 'net.sourceforge.pmd.ant.PMDTask', classpath: configurations.myPmd.asPath)
+    ant.myPmdTask(shortFilenames: 'true', failonruleviolation: 'true',
+      rulesetfiles: file('src/tools/pmd-basic-rules.xml').toURI().toString()) {
+        formatter(type: 'text', toConsole: 'true')
         fileset(dir: 'src/main/java')
     }
 }
