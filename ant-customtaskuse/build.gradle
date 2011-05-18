@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+defaultTasks 'checkTheStyle'
+
+task checkTheStyle << {
+    //Load the custom task
+    ant.taskdef(resource: 'checkstyletask.properties') {
+        classpath {
+            fileset(dir: 'lib/checkstyle', includes: '*.jar')
+        }
+    }
+    
+    //Use the custom task
+    ant.checkstyle(config: 'src/tools/sun_checks.xml') {
+        fileset(dir: 'src/main/java')
+    }
+}
