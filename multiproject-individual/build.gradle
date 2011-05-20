@@ -7,10 +7,10 @@ dependencies {
   compile project(':content')
 }
 
-[ 'shakespeare', 'williams', 'shelley' ].each { poet ->
+[ 'shakespeare', 'williams', 'shelley', 'chesterton' ].each { poet ->
   task "${poet}"(type: JavaExec) {
-    args = [ name ]
+    args = [ poet ]
     main = 'org.gradle.example.codedpoet.CommandLine'
-    classpath sourceSets.main.runtimeClasspath, project(':codec').sourceSets.main.compileClasspath
+    classpath sourceSets.main.runtimeClasspath, project(':codec').sourceSets.main.runtimeClasspath
   }
 }
