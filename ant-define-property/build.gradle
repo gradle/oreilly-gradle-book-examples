@@ -1,6 +1,13 @@
-def helloName = "Fird Birfle"
-int personAge = 43
+def gradlePersonName = "Fird Birfle"
+int gradlePersonAge = 43
+
+//Import the Ant build
+ant.importBuild 'build.xml'
 
 task hello << {
-    println "Hello ${helloName}. I believe you are ${personAge} years of age."
+    //Use a property from Gradle in an Ant call
+    ant.echo "Hello ${gradlePersonName}. I believe you are ${gradlePersonAge} years of age."
+    
+    //Use a property from Ant in a Gradle call
+    println "Hello ${ant.antPersonName}. I believe you are ${ant.antPersonAge} years of age."
 }
