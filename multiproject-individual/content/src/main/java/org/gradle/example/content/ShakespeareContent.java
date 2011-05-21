@@ -14,6 +14,9 @@ public class ShakespeareContent
     lines.add("Thou are the ruin of the noblest man");
     lines.add("Who ever livèd in the tide of times");
     lines.add("Woe to the hands that shed this costly blood!");
+    lines.add("Over thy wounds now do I prophesy");
+    lines.add("Which like dumb mouths do ope their ruby lips");
+    lines.add("To beg the voice and utterance of my tongue");
     
     return lines;
   }

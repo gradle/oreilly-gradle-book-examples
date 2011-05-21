@@ -7,6 +7,3 @@ repositories {
 dependencies { 
   compile 'commons-codec:commons-codec:1.5' 
 }
-
-//println configurations.compile.metaClass.properties.collect { it.name }
-//println configurations.compile.files
