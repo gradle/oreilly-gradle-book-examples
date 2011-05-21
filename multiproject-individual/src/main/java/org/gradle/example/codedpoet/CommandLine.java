@@ -10,7 +10,7 @@ public class CommandLine {
 
   public void getAndPrintPoem(String poetName) {
     for(String line: getPoemLines(poetName)) {
-      System.out.println(line);
+      System.out.print(line);
     }
   }
 

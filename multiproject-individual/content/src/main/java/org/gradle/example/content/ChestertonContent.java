@@ -13,18 +13,18 @@ public class ChestertonContent
   implements Content
 {
   private List<String> lines;
-  private long invocationCount;
 
   public ChestertonContent() {
     lines = new ArrayList<String>();
-    invocationCount = 0;
 
     lines.add("If I had been a heathen, I'd have praised the purple vine");
+    lines.add("My slaves should dig the vineyard, and I would drink the wine");
+    lines.add("But Higgins is a heathen, and his slaves grow lean and grey");
+    lines.add("That he should drink some tepid milk exactly twice a day");
   }
 
 
   public List<String> getLines() {
-    invocationCount++;
     return lines;
   }
 }
