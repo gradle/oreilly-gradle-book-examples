@@ -27,7 +27,6 @@ public class CommandLine {
     return encodedLines;
   }
 
-
   public static void main(String args[]) {
     if(args.length == 1) {
       String poetName = args[0];
@@ -39,22 +38,3 @@ public class CommandLine {
     }
   }
 }
-
-
-
-
-/*
-      ContentFactory contentFactory = ContentFactory.getInstance();
-      Content provider = contentFactory.getContentProvider(poetName);
-      List<String> clearTextLines = provider.getLines();
-      Encoder encoder = new Encoder();
-
-      List<String> encodedLines = new ArrayList<String>();
-      for(String line: clearTextLines) {
-        encodedLines.add(encoder.encode(line));
-      }
-
-      for(String line: encodedLines) {
-        System.out.println(line);
-      }
-*/
