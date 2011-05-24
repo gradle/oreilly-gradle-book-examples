@@ -1,0 +1,10 @@
+task echoSystemPropertiesWithSpread() {
+    description = "Uses Groovy's regex matching to find a match in System properties"
+    
+    def charToFind = 'sun'
+    
+    println "SYSTEM PROPERTIES"
+    System.properties.each{
+        ant.echo("Does '${it}' contain '${charToFind}': " + (it ==~ ".*${charToFind}.*"))
+    }
+}
