@@ -1,0 +1,16 @@
+task echoDirListViaAntBuilder << {
+    //Echo the Gradle project name via the ant echo plugin
+    ant.echo(message: project.name)
+    ant.echo(path)
+    ant.echo("${projectDir}/samples")
+    
+    //Echo the list of files in a subdirectory
+    // Use Groovy's AntBuilder.
+    // http://ant.apache.org/manual/Types/fileset.html
+    // Print each file to screen with the CWD (projectDir) path removed.
+    ant.fileScanner{
+        fileset(dir:"samples")
+    }.each{
+        println it.toString() - "${projectDir}"
+    }
+}
