@@ -1,4 +1,4 @@
-task echoSystemPropertiesWithSpread() {
+task echoSystemPropertiesWithRegEx() {
     description = "Uses Groovy's regex matching to find a match in System properties"
     
     def charToFind = 'sun'
