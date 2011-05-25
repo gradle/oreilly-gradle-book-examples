@@ -1,0 +1,9 @@
+<project>
+  <target name="antStandAloneHello">
+    <echo message="A stand-alone hello from an Ant target"/>
+  </target>
+  
+  <target name="antHello" depends="beforeTheAntTask">
+    <echo message="A dependent hello from the Ant target"/>
+  </target>
+</project>

@@ -1,0 +1,11 @@
+ant.importBuild 'build.xml'
+
+defaultTasks = ['antStandAloneHello', 'afterTheAntTask']
+
+task beforeTheAntTask << {
+    println "A Gradle task that precedes the Ant target"
+}
+
+task afterTheAntTask(dependsOn: "antHello") << {
+    println "A Gradle task that precedes the Ant target"
+}
