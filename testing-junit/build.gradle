@@ -13,6 +13,8 @@ test {
     forkEvery = 5
 }
 
+// Thanks to mrhaki for the original web-broadast idea
+// http://mrhaki.blogspot.com/2010/11/gradle-goodness-running-tests-in.html
 task createTests << {
     (0..5).each { packageCounter ->
         def packageName = "sample${packageCounter}"
@@ -22,8 +24,8 @@ task createTests << {
                 from 'src/test/java'
                 into 'src/test/java'
                 expand([packageName: packageName, testClassName: testClassName])
-                rename '(.*).java', "org/gradle/example/simple/" + packageName + '/' + testClassName + '.java'
-                include 'TestPerson.java'
+                rename '(.*).java', packageName + '/' + testClassName + '.java'
+                include '**/TestPerson.java'
             }
         }
     }

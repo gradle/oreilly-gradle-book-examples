@@ -1,9 +1,9 @@
-package org.gradle.example.simple;
+package ${packageName};
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TestPerson {
+public class ${testClassName} {
   @Test
   public void testPerson() {
       Person p = new Person();
