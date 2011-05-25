@@ -12,18 +12,3 @@ test {
     maxParallelForks = 5
     forkEvery = 50
 }
-
-// Mrhaki provided the code-generation idea
-// http://mrhaki.blogspot.com/2010/11/gradle-goodness-running-tests-in.html
-task createTests << {
-    (0..1000).each { classCounter ->
-        copy {
-            from 'src/template/java'
-            into 'src/test/java'
-            
-            expand(templateClassName: "TestPerson${classCounter}")
-            rename '(.*).java', "TestPerson${classCounter}.java"
-            include '**/TestPerson.java'
-        }
-    }
-}
