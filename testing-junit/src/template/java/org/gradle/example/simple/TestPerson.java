@@ -1,5 +1,7 @@
 package ${packageName};
 
+import org.gradle.example.simple.Person;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
