@@ -21,11 +21,11 @@ task createTests << {
         (0..10).each { classCounter ->
             def testClassName = "TestPerson${classCounter}"
             copy {
-                from 'src/test/java'
+                from 'src/template/java'
                 into 'src/test/java'
                 expand([packageName: packageName, testClassName: testClassName])
                 rename '(.*).java', packageName + '/' + testClassName + '.java'
-                include '**/TestPerson.java'
+                include '**/TestPerson.java.template'
             }
         }
     }
