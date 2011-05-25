@@ -1,2 +1,5 @@
 #!/bin/bash
-gradle helloWorld
+gradle createTable
+# Will likely fail due to no DB access. TODO: Should use Derby.
+
+exit 0

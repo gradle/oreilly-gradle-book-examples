@@ -1,2 +1,5 @@
 #!/bin/bash
 gradle createTable
+# Since database connectivity is unlike, ignore any failures
+
+exit 0

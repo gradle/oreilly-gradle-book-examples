@@ -1,2 +1,5 @@
 #!/bin/bash
 gradle
+# This gradle run will fail due to intentionally non-compliant code
+
+exit 0
