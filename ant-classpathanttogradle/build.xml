@@ -1,0 +1,5 @@
+<project>
+    <!-- Classpath created by Ant, then used by Gradle -->
+    <path id="antPathToLibs1" location="antlibs"/>
+    <path id="antPathToLibs2" location="antlibs"/>
+</project>

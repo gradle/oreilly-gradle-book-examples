@@ -1,0 +1,30 @@
+ant.importBuild 'build.xml'
+
+defaultTasks = ['gradleBuild']
+
+////////////////////////////////////////////////////////////////////////
+// Gradle paths retrieved from Ant and then built using a Gradle task
+repositories {
+    flatDir name: 'localRepository1', dirs: ant.references['antPathToLibs1']
+    flatDir name: 'localRepository2', dirs: ant.references.antPathToLibs2
+    flatDir name: 'localRepository3', dirs: "antlibs"
+}
+
+task gradleBuild << {
+    //Set classpath to include the JAR
+    println "The repositories bridged from Ant to Gradle are:"
+    println repositories*.name
+
+    println repositories.localRepository1
+    
+    println repositories['localRepository2']
+    
+    println "localRepository3 class = " + repositories.localRepository3.class
+    println "localRepository3 name = " + repositories.localRepository3.name
+    println "localRepository3 latest = " + repositories.localRepository3.latest
+    println "localRepository3 ivyPatterns = " + repositories.localRepository3.ivyPatterns
+    println "localRepository3 artifactPatterns = " + repositories.localRepository3.artifactPatterns
+    println "localRepository3 checkconsistency = " + repositories.localRepository3.checkconsistency
+    println "localRepository3 m2compatible = " + repositories.localRepository3.m2compatible
+    println "localRepository3 methods = " + repositories.localRepository3.metaClass.methods*.name.sort().unique()
+}
