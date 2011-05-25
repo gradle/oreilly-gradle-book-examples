@@ -9,24 +9,21 @@ dependencies {
 }
 
 test {
-    maxParallelForks = 3
-    forkEvery = 5
+    maxParallelForks = 5
+    forkEvery = 50
 }
 
-// Thanks to mrhaki for the original web-broadast idea
+// Mrhaki provided the code-generation idea
 // http://mrhaki.blogspot.com/2010/11/gradle-goodness-running-tests-in.html
 task createTests << {
-    (0..5).each { packageCounter ->
-        def packageName = "sample${packageCounter}"
-        (0..10).each { classCounter ->
-            def testClassName = "TestPerson${classCounter}"
-            copy {
-                from 'src/template/java'
-                into 'src/test/java'
-                expand([packageName: packageName, testClassName: testClassName])
-                rename '(.*).java', packageName + '/' + testClassName + '.java'
-                include '**/TestPerson.java'
-            }
+    (0..1000).each { classCounter ->
+        copy {
+            from 'src/template/java'
+            into 'src/test/java'
+            
+            expand(templateClassName: "TestPerson${classCounter}")
+            rename '(.*).java', "TestPerson${classCounter}.java"
+            include '**/TestPerson.java'
         }
     }
 }

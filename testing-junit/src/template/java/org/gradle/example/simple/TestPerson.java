@@ -1,11 +1,11 @@
-package ${packageName};
+package org.gradle.example.simple;
 
 import org.gradle.example.simple.Person;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ${testClassName} {
+public class ${templateClassName} {
   @Test
   public void testPerson() {
       Person p = new Person();
