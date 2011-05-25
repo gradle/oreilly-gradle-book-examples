@@ -1,0 +1,30 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.8.2'
+}
+
+test {
+    maxParallelForks = 3
+    forkEvery = 5
+}
+
+task createTests << {
+    (0..5).each { packageCounter ->
+        def packageName = "sample${packageCounter}"
+        (0..10).each { classCounter ->
+            def testClassName = "TestPerson${classCounter}"
+            copy {
+                from 'src/test/java'
+                into 'src/test/java'
+                expand([packageName: packageName, testClassName: testClassName])
+                rename '(.*).java', "org/gradle/example/simple/" + packageName + '/' + testClassName + '.java'
+                include 'TestPerson.java'
+            }
+        }
+    }
+}
