@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#Build the result using Gradle
+gradle build

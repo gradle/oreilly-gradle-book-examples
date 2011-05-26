@@ -1,0 +1,21 @@
+<!-- The smallest possible Maven POM.xml -->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gradleware.samples</groupId>
+  <artifactId>sample01-m2metadata</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
+  
+  <dependencies>
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.16</version>
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.8.2</version>
+        <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
