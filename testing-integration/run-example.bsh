@@ -1,2 +1,2 @@
 #!/bin/bash
-gradle test
+gradle integrationTest
