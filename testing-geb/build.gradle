@@ -1,0 +1,14 @@
+apply plugin: 'groovy'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    groovy 'org.codehaus.groovy:groovy:1.7.10'
+    testCompile 'junit:junit:4.8.2'
+	testCompile 'org.codehaus.geb:geb-core:0.5.1'
+	testCompile 'org.codehaus.geb:geb-junit4:0.5.1'
+	testCompile 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.0a7'
+	
+}
