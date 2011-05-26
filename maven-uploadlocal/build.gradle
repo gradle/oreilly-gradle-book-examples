@@ -1,0 +1,10 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.gradleware.samples'
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: "file:///Users/mccm06/Documents/Temp/Scratch/mytemprepo/")
+    }
+}
