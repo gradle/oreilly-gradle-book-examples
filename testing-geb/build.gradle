@@ -5,10 +5,22 @@ repositories {
 }
 
 dependencies {
-    groovy 'org.codehaus.groovy:groovy:1.7.10'
-    testCompile 'junit:junit:4.8.2'
+//    groovy 'org.codehaus.groovy:groovy:1.7.10'
+    testCompile ('org.easyb:easyb:0.9.8') 
 	testCompile 'org.codehaus.geb:geb-core:0.5.1'
-	testCompile 'org.codehaus.geb:geb-junit4:0.5.1'
+	testCompile 'org.codehaus.geb:geb-easyb:0.5.1'
 	testCompile 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.0a7'
-	
+}
+
+test.doLast {
+   ant.taskdef(name: "easyb", classname:"org.easyb.ant.BehaviorRunnerTask", classpath: sourceSets.test.runtimeClasspath.asPath)
+
+    ant.easyb( classpath: sourceSets.test.runtimeClasspath.asPath, failureProperty:'easyb_failed' ) {
+        report( location:"${project.testResultsDir}/story.html", format:"html" )
+        behaviors( dir: "src/test/stories" ) {
+            include( name:"**/*.story" )
+        }
+   }
+
+   ant.fail( if:'easyb_failed', message: 'Failures in easyb stories') 
 }
