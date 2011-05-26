@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Convert the Maven POM to a build.gradle file
+maven2gradle
+
+#Build the result using Gradle
+gradle build
