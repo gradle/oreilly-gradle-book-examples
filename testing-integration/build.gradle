@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.8.2'
+}
+
+test {
+   include '**/Test*.*'
+}
+
+task integrationTest(type: Test, dependsOn: "test") << {
+   include '**/IntegrationTest*.*'
+}
+
