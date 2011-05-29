@@ -1,4 +1,4 @@
-task copyFiles << {
+task copyFiles {
   // Find files from wherever, copy them
   // (then hardcode a list of files for illustration)
   fileManifest = [ 'data.csv', 'config.json' ]
