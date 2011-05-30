@@ -1,0 +1,11 @@
+task createSchema << {
+  println 'create database schema'
+}
+
+task loadTestData(dependsOn: createSchema) << {
+  println 'load test data'
+}
+
+loadTestData.onlyIf {
+  System.properties['load.data'] == 'true'
+}
