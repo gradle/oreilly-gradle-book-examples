@@ -1,9 +1,9 @@
-task hello << {
-  println 'hello'
+task templates << {
+  println 'process email templates'
 }
 
-task world(dependsOn: hello) << {
-  println 'world'
+task sendEmails(dependsOn: templates) << {
+  println 'send emails'
 }
 
-world.enabled = false
+sendEmails.enabled = false
