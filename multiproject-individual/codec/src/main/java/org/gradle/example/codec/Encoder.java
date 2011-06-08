@@ -12,7 +12,6 @@ public class Encoder {
   
   public String encode(String plainText) {
     Metaphone metaphoneCodec = new Metaphone();
-    Base64 base64Codec = new Base64();
     List<String> encodedTokens = new ArrayList<String>();
 
     List<String> tokens = tokenize(plainText);
@@ -21,7 +20,7 @@ public class Encoder {
     }
     
     String metaphone = join(encodedTokens, " ");
-    byte[] base64 = base64Codec.encodeBase64Chunked(metaphone.getBytes());
+    byte[] base64 = Base64.encodeBase64Chunked(metaphone.getBytes());
     return new String(base64);
   }
   
