@@ -1,0 +1,36 @@
+//via Luke Daley
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.gradleware.samples'
+version = '0.0.1-SNAPSHOT'
+
+defaultTasks = ['printDeps']
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.8.2'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.8.3'
+}
+
+task printDeps(dependsOn: build) << {
+    println "All configurations:"
+    configurations.each { 
+        println "\n${it.name}:"
+        [dependencies: [local: it.dependencies, all: it.allDependencies], artifacts: [local: it.artifacts, all: it.allArtifacts]].each { type, things ->
+            things.each { scope, items ->
+                println "    $type ($scope):"
+                items.each { println "        $it" }
+            }
+        }
+    }
+    println "Just the default configurations:"
+    configurations.default.dependencies.each { println it }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.0-milestone-3'
+}
