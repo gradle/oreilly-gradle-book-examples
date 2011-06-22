@@ -1,0 +1,23 @@
+task compileStuff << {
+  print 'Building...'
+}
+
+task jarStuff(dependsOn: compileStuff) << {
+  print 'JARing...'
+}
+
+task unitTestStuff(dependsOn: compileStuff) << {
+  println 'Unit testing...'
+}
+
+task integrationTestStuff(dependsOn: jarStuff) << {
+  println 'Integration testing...'
+}
+
+task deployStuff(dependsOn: jarStuff) << {
+  println 'Deploying...'
+}
+
+task doItAll(dependsOn: [unitTestStuff, integrationTestStuff, deployStuff]) << {
+  println 'Doing it all...'
+}
