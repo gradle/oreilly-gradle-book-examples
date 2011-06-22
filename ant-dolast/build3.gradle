@@ -1,0 +1,7 @@
+ant.importBuild 'build.xml'
+
+defaultTasks = ['antBuild']
+
+antBuild.doLast {
+    println "The Ant goal was supplemented by a Gradle doLast"
+}

@@ -1,0 +1,5 @@
+<project>
+    <target name="antBuild">
+      <echo message="Hello from inside Ant's build.xml!"/>
+    </target>
+</project>

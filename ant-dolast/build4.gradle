@@ -1,0 +1,21 @@
+ant.importBuild 'build4.xml'
+
+defaultTasks = ['antBuild']
+
+////////////////////////////////////////////////////////////////////////
+// Ant paths injected by Gradle and then built using an Ant goal
+task antPathsInjectedByGradle << {
+    ant.path(id: 'gradlePathToLibs1', location: 'gradlelibs')
+    // or
+    ant.references.gradlePathToLibs2 = ant.path(location: 'gradlelibs')
+    // or
+    ant.references['gradlePathToLibs3'] = ant.path(location: file('gradlelibs').absolutePath)
+    
+    println "This task injects Gradle paths into the AntBuilder"
+}
+
+antBuild.doLast {
+    // No antBuild Task needs to be explicitly constructed
+    // antBuild task is created by the build.xml import
+    println "This Ant goal was converted to a Gradle task by the ant.importBuild call"
+}
