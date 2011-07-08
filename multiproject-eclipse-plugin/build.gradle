@@ -1,0 +1,53 @@
+apply plugin: 'eclipse'
+
+allprojects { 
+  apply plugin: 'java'
+}
+
+evaluationDependsOn(':codec')
+
+dependencies {
+  compile project(':codec')
+  compile project(':content')
+}
+
+[ 'shakespeare', 'williams', 'shelley', 'chesterton' ].each { poet ->
+  task "${poet}"(type: JavaExec) {
+    group = 'Encoded Poetry'
+    args = [ poet ]
+    main = 'org.gradle.example.codedpoet.CommandLine'
+    classpath sourceSets.main.runtimeClasspath, 
+              project(':codec').sourceSets.main.runtimeClasspath
+  }
+}
+
+println allprojects*.configurations*.all*.name
+
+eclipse {
+  projectName = 'EncodedPoetry'
+  
+  jdt {
+    sourceCompatibility = '1.6'
+  }
+
+  classpath {
+    downloadSources = true
+    downloadJavadoc = true
+    sourceSets = allprojects.collect { it.sourceSets.collect { it } }.flatten()
+    pathVariables DEPENDENCY_CACHE: file("${gradle.gradleUserHomeDir}/cache")
+    
+    // This code will automatically pick up new subprojects as they are added.
+    // It will include the provided, compile, and runtime configurations.
+    subprojectConfigurations = allprojects*.configurations*.matching {
+      it.name in [ 'provided', 'compile', 'runtime' ]
+    }
+    subprojectConfigurations.all.flatten().each {
+      plusConfigurations << it
+    }
+  
+    minusConfigurations << configurations.compile
+    minusConfigurations << configurations.runtime
+  }
+}
+
+task rebuildEclipse(dependsOn: [cleanEclipse, eclipse])

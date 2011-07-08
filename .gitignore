@@ -1,6 +1,8 @@
 build
 .gradle
 output
+bin
+out
 *.log
 *.iws
 *.ipr
