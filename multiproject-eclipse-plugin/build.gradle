@@ -21,8 +21,6 @@ dependencies {
   }
 }
 
-println allprojects*.configurations*.all*.name
-
 eclipse {
   projectName = 'EncodedPoetry'
   
