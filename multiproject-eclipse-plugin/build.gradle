@@ -35,9 +35,9 @@ eclipse {
     pathVariables DEPENDENCY_CACHE: file("${gradle.gradleUserHomeDir}/cache")
     
     // This code will automatically pick up new subprojects as they are added.
-    // It will include the provided, compile, and runtime configurations.
+    // It will include the compile, and runtime configurations.
     subprojectConfigurations = allprojects*.configurations*.matching {
-      it.name in [ 'provided', 'compile', 'runtime' ]
+      it.name in [ 'compile', 'runtime' ]
     }
     subprojectConfigurations.all.flatten().each {
       plusConfigurations << it
