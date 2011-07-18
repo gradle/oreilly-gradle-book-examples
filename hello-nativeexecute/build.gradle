@@ -1,0 +1,3 @@
+task helloWorldOnAMac << {
+    "say \"This says 'hello' audibly on a Mac\"".execute()
+}
