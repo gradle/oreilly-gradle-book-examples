@@ -1,0 +1,8 @@
+apply plugin: 'java'
+
+println "Hello at the top level in the configuration phase"
+
+copy {
+    from 'before'
+    into 'after'
+}
