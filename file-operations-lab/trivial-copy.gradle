@@ -1,0 +1,5 @@
+
+task copyPoems(type: Copy) { 
+  from 'poems'
+  into 'build/poems'
+}
