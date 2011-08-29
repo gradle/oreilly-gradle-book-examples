@@ -1,0 +1,12 @@
+task complexCopy(type: Copy) { 
+  from('src/main/templates') { 
+    include '**/*.gtpl'
+    into 'templates'
+  }
+  from('i18n')
+  from('config') { 
+    exclude 'Development*.groovy'
+    into 'config'
+  }
+  into 'build/resources'
+}

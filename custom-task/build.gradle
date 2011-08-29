@@ -1,0 +1,33 @@
+
+import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.TaskAction
+
+task greet(type: GreetingTask) { 
+  greeted = 'world'
+}
+
+//greet << { thirdGreeting() }
+
+
+class GreetingTask
+  extends DefaultTask { 
+
+  def greeted
+
+
+  @TaskAction
+  void secondGreeting() {
+    logger.lifecycle "I SAID HELLO, ${greeted}"
+  }
+
+  //  @TaskAction
+  void thirdGreeting() { 
+    logger.lifecycle "I'm tired of greeting you, ${greeted}"
+  }
+
+  @TaskAction
+  void firstGreeting() { 
+    logger.lifecycle "hello, ${greeted}"
+  }
+
+}
