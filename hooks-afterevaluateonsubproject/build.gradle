@@ -1,0 +1,17 @@
+hasIntegTest = false
+
+task doOtherCoreThings << {
+    println "Performing work in doOtherCoreThings"
+}
+
+allprojects {
+    afterEvaluate { someproject ->
+        println "Evaluating if $someproject needs an integration test task"
+        if (someproject.hasIntegTest) {
+            println "Adding integ-test task to $project"
+            project.task('integ-test') << {
+                println "Running integ-tests for $project"
+            }
+        }
+    }
+}

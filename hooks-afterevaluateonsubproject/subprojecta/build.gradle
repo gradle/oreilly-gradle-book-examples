@@ -1,0 +1,5 @@
+someproject = true
+
+task doOtherAThings << {
+    println "Performing work in doOtherAThings"
+}
