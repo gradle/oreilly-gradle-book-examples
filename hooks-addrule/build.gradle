@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.8.2'
+}
+
+tasks.addRule("Rule Usage: testOnly<TestName>") { String taskName ->
+    if (taskName.startsWith("testOnly")) {
+        task(taskName) << {
+            println "Testing: " + (taskName - 'testOnly')
+            //Run the test for this class only (like test single)
+       }
+    }
+}
