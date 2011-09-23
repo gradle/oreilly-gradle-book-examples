@@ -1,0 +1,8 @@
+#!/bin/bash
+rm -rf grammars
+gradle tasks -q
+# folder does not exist, so we have no testGrammars task
+
+mkdir grammars
+gradle tasks -q
+# folder does not exist, so we get a testGrammars task
