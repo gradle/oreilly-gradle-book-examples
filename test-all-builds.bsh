@@ -11,8 +11,13 @@ for i in `find . ! -iname ".gradle" ! -iname ".git" -type d -depth 1`; do
     
         # Test for failure
         BUILD_RESULT="$?"
-        echo Build result: $BUILD_RESULT
-        if test "$BUILD_RESULT" = "1"
+        echo ""
+        echo "  +++++++++++++++++++++++++++++++++++++"
+        echo "  SCRIPTED BUILD RESULT: $BUILD_RESULT"
+        echo "  +++++++++++++++++++++++++++++++++++++"
+        echo ""
+        
+        if test "$BUILD_RESULT" != "0"
         then
             echo **********************************************************************
             echo ************* A sub-build has failed. Build is halting. **************
