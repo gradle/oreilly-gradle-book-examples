@@ -1,3 +1,6 @@
+//Applying the core Java plugin gives us the `test` task
+apply plugin: 'java'
+
 hasIntegTest = false
 
 task doOtherCoreThings << {
@@ -5,12 +8,18 @@ task doOtherCoreThings << {
 }
 
 allprojects {
+    // afterEvaluate is run after all build files have been loaded
     afterEvaluate { someproject ->
-        println "Evaluating if $someproject needs an integration test task"
+        println "Evaluating if $someproject is requesting an integration test task"
         if (someproject.hasIntegTest) {
-            println "Adding integ-test task to $project"
-            project.task('integ-test') << {
+            // The subproject is asking for an integration test task
+            // by the fact that `hasIntegTest` is manually set to `true`.
+            
+            println "Adding an `integ-test` task to subproject `$project`"
+            
+            project.task('integ-test' type: Test, dependsOn: "test") << {
                 println "Running integ-tests for $project"
+                include '**/IntegrationTest*.*'
             }
         }
     }
