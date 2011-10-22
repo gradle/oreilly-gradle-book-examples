@@ -1,0 +1,9 @@
+#!/bin/bash
+gradle -b description-all-in-one.gradle helloWorld
+gradle -b description-separately.gradle helloWorld
+gradle -b didWork.gradle                emailMe
+gradle -b dynamic.gradle                createArtifact
+gradle -b enabled.gradle                sendEmails
+gradle -b logging.gradle                logLevel
+gradle -b onlyIf.gradle                 loadTestData
+gradle -b path.gradle                   echoMyPath
