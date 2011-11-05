@@ -12,6 +12,7 @@ echo "#  Run 'gradle clean' instead of the run-example.bsh"
 echo "#  script in each project."
 echo "############################################################"
 echo ""
+sleep 2
 
 for i in `find . ! -iname ".gradle" ! -iname ".git" -type d -depth 1`
 do
@@ -42,6 +43,8 @@ do
             then
                 echo "* Build is CONTINUING anyway per the -neverfail flag."
                 echo "**********************************************************************"
+                echo ""
+                sleep 4
             else
                 echo "* Build has been halted."
                 echo "**********************************************************************"
