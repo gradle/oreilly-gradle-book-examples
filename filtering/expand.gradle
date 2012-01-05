@@ -1,0 +1,13 @@
+versionId = '1.6'
+
+task copyProductionConfig(type: Copy) { 
+  from 'source'
+  include 'config.properties'
+  into 'build/war/WEB-INF/config'
+  expand([
+    databaseHostname: 'db.company.com',
+    version: versionId,
+    buildNumber: (int)(Math.random() * 1000),
+    date: new Date()
+  ])
+}
