@@ -1,0 +1,5 @@
+task rename(type: Copy) {
+  from 'source'
+  into 'dest'
+  rename(/file-template-(\d+)/, 'production-file-$1.txt')
+}

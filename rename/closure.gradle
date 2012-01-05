@@ -1,0 +1,7 @@
+task rename(type: Copy) {
+  from 'source'
+  into 'dest'
+  rename { fileName ->
+    "production-file${(fileName - 'file-template')}"
+  }
+}
