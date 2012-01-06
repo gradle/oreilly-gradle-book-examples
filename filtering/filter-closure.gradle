@@ -1,0 +1,13 @@
+task copyPoem(type: Copy) { 
+  into 'build/poems'
+  from 'source'
+  include 'wheelbarrow.txt'
+  filter { line ->
+    if(line && line[0] == '#') {
+      ''
+    }
+    else { 
+      new String(line.getBytes('ISO-8859-1'), 'ISO-8859-1')
+    }
+  }
+}
