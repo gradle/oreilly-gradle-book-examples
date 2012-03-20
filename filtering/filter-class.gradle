@@ -1,0 +1,26 @@
+import org.apache.tools.ant.filters.*
+import com.petebevin.markdown.MarkdownProcessor
+
+buildscript {
+  repositories { 
+    mavenRepo url: 'http://scala-tools.org/repo-releases'
+  }
+
+  dependencies { 
+    classpath 'org.markdownj:markdownj:0.3.0-1.0.2b4'
+  }
+}
+
+class MarkdownFilter extends FilterReader {
+  MarkdownFilter(Reader input) {
+    super(new StringReader(new MarkdownProcessor().markdown(input.text)))
+  }
+}
+
+task copyPoem(type: Copy) { 
+  into 'build/poems'
+  from 'source'
+  include 'todo.md'
+  rename { it - '.md' + '.html'}
+  filter MarkdownFilter
+}

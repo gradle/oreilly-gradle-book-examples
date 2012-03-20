@@ -1,13 +1,22 @@
-task copyPoem(type: Copy) { 
+import com.petebevin.markdown.MarkdownProcessor
+
+buildscript {
+  repositories { 
+    mavenRepo url: 'http://scala-tools.org/repo-releases'
+  }
+
+  dependencies { 
+    classpath 'org.markdownj:markdownj:0.3.0-1.0.2b4'
+  }
+}
+
+task markdown(type: Copy) {
+  def markdownProcessor = new MarkdownProcessor()
   into 'build/poems'
   from 'source'
-  include 'wheelbarrow.txt'
+  include 'todo.md'
+  rename { it - '.md' + '.html'}
   filter { line ->
-    if(line && line[0] == '#') {
-      ''
-    }
-    else { 
-      new String(line.getBytes('ISO-8859-1'), 'ISO-8859-1')
-    }
+    markdownProcessor.markdown(line)
   }
 }

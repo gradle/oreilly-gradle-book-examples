@@ -1,0 +1,15 @@
+import java.security.MessageDigest;
+
+task copyAndHash(type: Copy) { 
+  MessageDigest sha1 = MessageDigest.getInstance("SHA-1"); 
+  
+  into 'build/deploy'
+  from 'source'
+  eachFile { fileCopyDetails ->
+    sha1.digest(fileCopyDetails.file.bytes)
+  }
+  doLast { 
+    Formatter f = new Formatter()
+    println sha1.digest().collect { f.format('%02x') }.join()
+  }
+}
