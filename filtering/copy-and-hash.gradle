@@ -8,8 +8,9 @@ task copyAndHash(type: Copy) {
   eachFile { fileCopyDetails ->
     sha1.digest(fileCopyDetails.file.bytes)
   }
-  doLast { 
-    Formatter f = new Formatter()
-    println sha1.digest().collect { f.format('%02x') }.join()
+  doLast {
+    Formatter hexHash = new Formatter()
+    sha1.digest().each { b -> hexHash.format('%02x', b) }
+    println hexHash
   }
 }
