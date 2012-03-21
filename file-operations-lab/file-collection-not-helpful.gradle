@@ -1,0 +1,7 @@
+task copyPoems(type: Copy) { 
+  from 'text-files'
+  into 'build/poems'
+}
+
+println "NOT HELPFUL:"
+println files(copyPoems)
