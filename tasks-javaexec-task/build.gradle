@@ -5,12 +5,12 @@ repositories {
 }
 
 dependencies {
-  runtime 'commons-codec:commons-codec:1.5'
+  compile 'commons-codec:commons-codec:1.5'
 }
 
 task encode(type: JavaExec, dependsOn: classes) {
   main = 'org.gradle.example.commandline.MetaphoneEncoder'
   args = "The rain in Spain falls mainly in the plain".split().toList()
-  classpath sourceSets.main.classesDir
+  classpath sourceSets.main.output.classesDir
   classpath configurations.runtime
 }
