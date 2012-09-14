@@ -6,4 +6,5 @@ gradle -b dynamic.gradle                createArtifact
 gradle -b enabled.gradle                sendEmails
 gradle -b logging.gradle                logLevel
 gradle -b onlyIf.gradle                 loadTestData
+gradle -Dload.data=true -b onlyIf.gradle                 loadTestData
 gradle -b path.gradle                   echoMyPath
