@@ -6,5 +6,5 @@ task customJar(type: Jar) {
   }
   archiveName = 'hello.jar'
   destinationDir = file("${buildDir}/jars")
-  from sourceSets.main.classes
+  from sourceSets.main.output
 }

@@ -5,7 +5,7 @@ repositories {
 }
 
 dependencies {
-  runtime 'commons-codec:commons-codec:1.5'
+  compile 'commons-codec:commons-codec:1.5'
 }
 
 task encode(type: JavaExec, dependsOn: classes) {
