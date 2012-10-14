@@ -1,0 +1,6 @@
+
+task generateChangeLog { 
+  doLast { 
+    
+  }
+}
