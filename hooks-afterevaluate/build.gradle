@@ -1,12 +1,20 @@
 afterEvaluate {
-    if (file('grammars').isDirectory()) { 
-        println "The grammars directory exists, so construct a task to use them"
+  if (file('grammars').isDirectory()) { 
+    println "'grammars' directory found"
 
-        task testGrammars << {
-            println "Running grammar tests"
-        }
+    task testGrammars << {
+      println "Running grammar tests"
     }
-    else {
-        println "No grammars found. Skipping grammar test construction."
-    }
+  }
+  else {
+    println "'grammars' directory not found"
+  }
+}
+
+beforeEvaluate {
+  println "Going to see about grammars"
+}
+
+task helloWorld << {
+  println "hello, world"
 }
