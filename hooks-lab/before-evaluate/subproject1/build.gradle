@@ -1,0 +1,5 @@
+task helloWorld {
+  doLast {
+    println "subproject1 says hello"
+  }
+}

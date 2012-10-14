@@ -1,0 +1,7 @@
+include 'subproject1', 'subproject2'
+
+gradle.projectsLoaded { gradle ->
+  println "Projects loaded!"
+  println gradle.rootProject.subprojects
+  gradle.rootProject.task("monkey") { doLast { println "monkey"} }
+}
