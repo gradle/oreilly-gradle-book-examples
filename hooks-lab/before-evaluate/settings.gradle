@@ -5,3 +5,4 @@ gradle.projectsLoaded { gradle ->
   println gradle.rootProject.subprojects
   gradle.rootProject.task("monkey") { doLast { println "monkey"} }
 }
+
