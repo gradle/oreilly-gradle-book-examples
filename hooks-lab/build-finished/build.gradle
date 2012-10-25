@@ -1,0 +1,16 @@
+gradle.buildFinished { buildResult ->
+  println "************BUILD FINISHED**********"
+  println buildResult.failure
+}
+
+task succeed {
+  doLast {
+    println "hello, world"
+  }
+}
+
+task fail {
+  doLast {
+    throw new Exception("Build failed")
+  }
+}

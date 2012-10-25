@@ -1,0 +1,17 @@
+apply plugin: 'liquibase'
+
+liquibase {
+  changelogs { 
+    main {
+      file = file('changelog.groovy')
+    }
+  }
+
+  databases { 
+    sandbox {
+      url = 'jdbc:h2:db/liquibase_workshop;FILE_LOCK=NO'
+      username = 'sa'
+      password = ''
+    }
+  }
+}

@@ -1,0 +1,11 @@
+gradle.projectsLoaded { g ->
+  g.rootProject.buildscript {
+    repositories {
+      mavenCentral()
+    }
+    dependencies {
+      classpath 'com.augusttechgroup:gradle-liquibase-plugin:0.7'
+      classpath 'com.h2database:h2:1.3.160'
+    }
+  }
+}

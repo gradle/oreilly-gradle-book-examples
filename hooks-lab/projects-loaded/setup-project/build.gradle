@@ -1,0 +1,41 @@
+apply plugin: 'java'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  runtime 'com.h2database:h2:1.3.153'
+}
+
+
+task createDatabaseScript {
+  group = 'database'
+  doLast { 
+    def fileName = 'starth2'
+    if(System.properties['os.name'].startsWith('Windows')) { 
+      fileName += '.bat'
+    }
+    def file = new File(projectDir, fileName)
+    file.withPrintWriter {  pw -> 
+      pw.print("java -cp ${sourceSets.main.runtimeClasspath.asPath} org.h2.tools.Server") 
+    }
+    file.setExecutable(true)
+  }
+}
+
+task startDatabase(type: JavaExec) {
+  group = 'database'
+  workingDir = projectDir
+  main = 'org.h2.tools.Server'
+  classpath = runtimeClasspath
+}
+
+task buildSchema(type: JavaExec) {
+  group = 'workshop'
+  classpath = runtimeClasspath
+  workingDir = projectDir
+  main = 'org.h2.tools.RunScript'
+  args = ['-url', 'jdbc:h2:db/liquibase_workshop;FILE_LOCK=NO', '-user', 'sa', '-script', 'create-schema-generic.sql']
+}
+
