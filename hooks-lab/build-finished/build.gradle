@@ -1,5 +1,6 @@
 gradle.buildFinished { buildResult ->
-  println "************BUILD FINISHED**********"
+  println "BUILD FINISHED"
+  println buildResult.failure?.getClass()
   println buildResult.failure
 }
 
