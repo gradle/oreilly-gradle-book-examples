@@ -11,6 +11,6 @@ dependencies {
 task encode(type: JavaExec, dependsOn: classes) {
   main = 'org.gradle.example.commandline.MetaphoneEncoder'
   args = "The rain in Spain falls mainly in the plain".split().toList()
-  classpath sourceSets.main.output
+  classpath sourceSets.main.output.classesDir
   classpath configurations.runtime
 }
