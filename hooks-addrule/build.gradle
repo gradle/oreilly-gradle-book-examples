@@ -1,18 +1,21 @@
-apply plugin: 'java'
-
-repositories {
-    mavenCentral()
+ext {
+  pingTimeout = 5000
+  pingLogDir = "${buildDir}/reachable"
 }
 
-dependencies {
-    testCompile 'junit:junit:4.8.2'
-}
-
-tasks.addRule("Rule Usage: testOnly<TestName>") { String taskName ->
-    if (taskName.startsWith("testOnly")) {
-        task(taskName) << {
-            println "Testing: " + (taskName - 'testOnly')
-            //Run the test for this class only (like test single)
-       }
+tasks.addRule('Rule Usage: ping<Hostname>') { String taskName ->
+  if(taskName.startsWith('ping')) {
+    task(taskName) {
+      ext.hostname = taskName - 'ping'
+      def logDir
+      doLast {
+        def host = InetAddress.getByName(ext.hostname)
+        def reachable = host.isReachable(project.ext.pingTimeout)
+        ext.reachable = reachable
+        def log = "${new Date()}\t${ext.reachable}\n"
+        file(pingLogDir).mkdirs()
+        file("${pingLogDir}/${ext.hostname}") << log
+      }
     }
+  }
 }
