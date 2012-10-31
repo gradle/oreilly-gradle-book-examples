@@ -1,5 +1,4 @@
 ext {
-  pingTimeout = 5000
   pingLogDir = "${buildDir}/reachable"
 }
 
@@ -7,14 +6,25 @@ tasks.addRule('Rule Usage: ping<Hostname>') { String taskName ->
   if(taskName.startsWith('ping')) {
     task(taskName) {
       ext.hostname = taskName - 'ping'
-      def logDir
       doLast {
-        def host = InetAddress.getByName(ext.hostname)
-        def reachable = host.isReachable(project.ext.pingTimeout)
-        ext.reachable = reachable
-        def log = "${new Date()}\t${ext.reachable}\n"
+        def url = new URL("http://${ext.hostname}")
+        def logString
+        try {
+          def pageContent = url.text
+          // Do some regex matching on pageContent
+          logString = "${new Date()}\t${ext.hostname}\tUP\n"
+          ext.up = true
+        }
+        catch(UnknownHostException e) {
+          logString = "${new Date()}\t${ext.hostname}\tUNKNOWN HOST\n"
+          ext.up = false
+        }
+        catch(ConnectException e) {
+          logString = "${new Date()}\t${ext.hostname}\tDOWN\n"
+          ext.up = false
+        }
         file(pingLogDir).mkdirs()
-        file("${pingLogDir}/${ext.hostname}") << log
+        file("${pingLogDir}/ping.log") << logString
       }
     }
   }
