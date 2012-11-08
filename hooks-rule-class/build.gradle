@@ -1,0 +1,7 @@
+import org.gradle.examples.rules.HttpPingRule
+
+ext {
+  pingLogDir = "${buildDir}/reachable"
+}
+
+tasks.addRule(new HttpPingRule(project))
