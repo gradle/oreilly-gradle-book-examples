@@ -12,4 +12,3 @@ task poe(type: JavaExec) {
 	main = 'org.gradle.poetry.PoetryEmitter'
 	classpath = runtimeClasspath
 }
-
