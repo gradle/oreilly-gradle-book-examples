@@ -1,5 +1,3 @@
-evaluationDependsOn(':codec')
-
 apply plugin: 'java'
 
 dependencies {
@@ -12,7 +10,6 @@ dependencies {
     group = 'Encoded Poetry'
     args = [ poet ]
     main = 'org.gradle.example.codedpoet.CommandLine'
-    classpath sourceSets.main.runtimeClasspath, 
-              project(':codec').sourceSets.main.runtimeClasspath
+    classpath runtimeClasspath
   }
 }
