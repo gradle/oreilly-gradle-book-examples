@@ -1,0 +1,25 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'org.markdownj:markdownj:0.3.0-1.0.2b4'
+  }
+}
+
+import com.petebevin.markdown.MarkdownProcessor
+
+class MarkdownFilter extends FilterReader {
+  MarkdownFilter(Reader input) {
+    super(new StringReader(new MarkdownProcessor().markdown(input.text)))
+  }
+}
+
+task markdown(type: Copy) {
+  from 'src/markdown'
+  include '*.md'
+  into 'build/labs'
+  rename { it - '.md' + '.html' }
+  filter MarkdownFilter
+}
