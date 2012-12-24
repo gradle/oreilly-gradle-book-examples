@@ -1,0 +1,14 @@
+apply plugin: 'jetty'
+
+configurations {
+  provided
+}
+
+dependencies {
+  provided 'javax.servlet:servlet-api:2.4'
+  compile configurations.provided
+}
+
+repositories {
+  mavenCentral()
+}
