@@ -1,7 +1,7 @@
-import java.security.MessageDigest;
+import java.security.MessageDigest
 
 task copyAndHash(type: Copy) { 
-  MessageDigest sha1 = MessageDigest.getInstance("SHA-1"); 
+  MessageDigest sha1 = MessageDigest.getInstance("SHA-1")
   
   into 'build/deploy'
   from 'source'
